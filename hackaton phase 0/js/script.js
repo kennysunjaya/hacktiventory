@@ -508,3 +508,16 @@ function loadFooter() {
     </div>`;
     document.getElementById("footer").innerHTML = footer;
 }
+
+// untuk mengatur minheight dari container
+function adjustContentHeight() {
+    const headerHeight = document.querySelector("#navbar").offsetHeight;
+    const footerHeight = document.querySelector("#footer").offsetHeight;
+    const viewportHeight = window.innerHeight;
+
+    const contentHeight = viewportHeight - headerHeight - footerHeight;
+    document.querySelector(".container").style.minHeight = contentHeight + "px";
+}
+
+window.addEventListener("resize", adjustContentHeight);
+window.addEventListener("load", adjustContentHeight);
