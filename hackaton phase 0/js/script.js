@@ -460,7 +460,7 @@ function register() {
 
 function loadNavbar() {
     const navbar = `
-        <nav class="navbar navbar-expand-md bg-light sticky-top  p-0 m-0">
+        <nav class="navbar navbar-expand-md bg-light sticky-top p-0 m-0">
         <div class="container-fluid navigasi">
           <a class="navbar-brand" href="../view/profile.html"><img src="../img/userPhoto/HACKTIVENTORY.png" alt="" style="width: 230px; margin-left: 7px;"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
