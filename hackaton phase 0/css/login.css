@@ -7,13 +7,13 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
+/* body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background: #3e8bff;
-}
+} */
 
 .wrapper {
   position: relative;
@@ -21,7 +21,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 400px;
-  height: 500px;
+  height: 550px;
   background: transparent;
   border: 5px solid #333;
   border-radius: 10px;
