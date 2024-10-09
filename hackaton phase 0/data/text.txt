@@ -1,0 +1,7 @@
+Latar Belakang
+
+Dalam era digital saat ini, efisiensi dan akurasi dalam pengelolaan inventaris menjadi sangat penting bagi perusahaan. Banyak perusahaan masih menggunakan metode manual atau spreadsheet seperti Microsoft Excel untuk mengelola data inventaris mereka. Metode ini sering kali menyebabkan ketidaksesuaian data, kehilangan informasi, dan kesalahan manusia yang dapat berdampak negatif pada operasional perusahaan.
+
+Untuk mengatasi masalah ini, kelompok kami berencana untuk mengembangkan sebuah sistem pengecekan inventaris berbasis web. Sistem ini akan memungkinkan pengguna untuk melakukan pengecekan barang secara real-time, mengurangi risiko kesalahan, dan meningkatkan efisiensi pengelolaan inventaris. Dengan sistem ini, data inventaris akan tersimpan secara terpusat dalam basis data yang aman, sehingga memudahkan akses dan pengelolaan informasi.
+
+Pengembangan sistem ini menggunakan metode Agile Development, yang memungkinkan pengembangan perangkat lunak secara bertahap dan melibatkan pengguna dalam setiap tahapannya. Dengan pendekatan ini, kami berharap dapat menghasilkan sistem yang tidak hanya memenuhi kebutuhan pengguna tetapi juga mudah diadaptasi dan dikembangkan lebih lanjut sesuai dengan perubahan kebutuhan bisnis.
