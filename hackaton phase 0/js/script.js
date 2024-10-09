@@ -300,7 +300,16 @@ let hactiventory = [
 // let hasildecryp = decryptPassword(pass)
 // console.log(hasildecryp);
 
+////  Konversi array objek ke string dan simpan ke sessionStorage
+sessionStorage.setItem('hactiventory', JSON.stringify(hactiventory));
 
+// . Ambil kembali data dari sessionStorage
+const storedhactiventory = sessionStorage.getItem('hactiventory')
+
+// . Konversi string kembali menjadi array objek
+const parsedhactiventory = JSON.parse(storedhactiventory);
+
+console.log([parsedhactiventory]);
 
 //authorization
 function Login(){
@@ -322,9 +331,30 @@ function Login(){
 }
 
 
+// delete aray
 
-// console.log(Login());
+const array = [
+  { id: 1, name: 'John' },
+  { id: 2, name: 'Doe' },
+  { id: 3, name: 'Jane' }
+];
 
-// sessionStorage.setItem('categor', 'hasil');
-// // console.log(hasil);
-// const Categor = sessionStorage.getItem('categor');
+
+//nama yang ingin dihapus 
+const nameToDelete = `John`;
+
+
+for(let i = 0 ; i < array.length ; i++){
+  if(array[i].name === nameToDelete){
+    for(let j = i ; j < array.length -1 ; j++){
+      array[j] = array[j+1]
+    }
+    //hapus elemen terakhir(karena sudah digeser kedepan)
+    array.length--;
+    break ; //keluar dari loop setelah objek ditemukan
+  }
+}
+
+console.log(array);
+
+
