@@ -290,3 +290,90 @@ let hactiventory = [
         password: "12345"
     }
 ];
+
+// authorization
+
+// create user
+/** Function Register */
+function register() {
+    let userInfo = {
+        userProfilePicture: "default.png",
+        nama: document.getElementById("nama").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("newPassword").value,
+        category: [],
+        order: {}
+    };
+    let repeatPassword = document.getElementById("repeatNewPassword").value;
+    // ngecek email duplikat dan password repeat
+    if (repeatPassword === userInfo["password"] && noEmailDuplicate(userInfo)) {
+        let hackTinventory = getHackTinventory();
+        hackTinventory.push(userInfo);
+        localStorage.setItem("hackTinventory", JSON.stringify(hackTinventory));
+        console.log("Registration successful");
+    } else if (repeatPassword !== userInfo["password"]) {
+        console.log("Password diulang dengan salah");
+    } else if (noEmailDuplicate(userInfo) == false) {
+        console.log("Email sudah dipakai");
+    }
+}
+
+function noEmailDuplicate(userInfo) {
+    let hackTinventory = getHackTinventory();
+    for (let i = 0; i < hackTinventory.length; i++) {
+        if (hackTinventory[i]["email"] === userInfo["email"]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// function untuk menyimpan hackTiventory ke local storage
+function initializeLocalStorage() {
+    // mengambil hackTinventory dan memasukkannya ke variabel existing inventory
+    let existingInventory = localStorage.getItem("hackTinventory");
+    // kalau di localstorage tidak ada object hackTinventory
+    if (!existingInventory) {
+        // kalau tidak ada object, maka setItemnya di dalam local storage
+        localStorage.setItem("hackTinventory", JSON.stringify(hactiventory));
+    } else {
+        // kalau ada objectnya di local storage
+        let inventoryArray = JSON.parse(existingInventory);
+        // looping hactiventory yang awal
+        for (let user of hactiventory) {
+            if (!inventoryArray.some((existingUser) => existingUser.email === user.email)) {
+                inventoryArray.push(user);
+            }
+        }
+        localStorage.setItem("hackTinventory", JSON.stringify(inventoryArray));
+    }
+}
+
+// function untuk mengambil hactIventory dari local storage
+function getHackTinventory() {
+    return JSON.parse(localStorage.getItem("hackTinventory")) || [];
+}
+
+initializeLocalStorage();
+// selesai mengambil ke dan dari local storage
+
+/* ====================================================================================================== */
+
+// login (read user)
+function login() {
+    // console.log(`hehe`);
+
+    for (let i = 0; i < hactiventory.length; i++) {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        // console.log(email , hactiventory[i]["email"])
+        if (email == hactiventory[i]["email"] && password == hactiventory[i]["password"]) {
+            // console.log(hactiventory[i]);
+            window.location.href = "../home.html";
+            break;
+        } else if (email !== hactiventory[i]["email"] && password !== hactiventory[i]["password"]) {
+            console.log(`login yang anda masukan salah`);
+            break;
+        }
+    }
+}
