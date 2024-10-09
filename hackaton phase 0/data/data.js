@@ -17,37 +17,37 @@ let hactiventory = [
             itemName: "Indomie",
             itemPrice: 4000,
             modalPrice: 3000,
-            quantity: 40
+            quantity: 40,
           },
           {
             itemImage: "/MakananDanMinuman/PocariSweat.jpeg",
             itemName: "PocariSweat",
             itemPrice: 5000,
             modalPrice: 3500,
-            quantity: 24
+            quantity: 24,
           },
           {
             itemImage: "/MakananDanMinuman/PopMie.jpg",
             itemName: "PopMie",
             itemPrice: 6000,
             modalPrice: 4000,
-            quantity: 24
+            quantity: 24,
           },
           {
             itemImage: "/MakananDanMinuman/SilverQueen.jpg",
             itemName: "SilverQueen",
             itemPrice: 16000,
             modalPrice: 13500,
-            quantity: 24
+            quantity: 24,
           },
           {
             itemImage: "/MakananDanMinuman/SlaiOlai.jpeg",
             itemName: "SlaiOlai",
             itemPrice: 6000,
             modalPrice: 4000,
-            quantity: 24
-          }
-        ]
+            quantity: 24,
+          },
+        ],
       },
       {
         categoryID: 1,
@@ -58,37 +58,37 @@ let hactiventory = [
             itemName: "MamaLemon",
             itemPrice: 20000,
             modalPrice: 17500,
-            quantity: 40
+            quantity: 40,
           },
           {
             itemImage: "/PeralatanRumahTangga/Rinso.jpg",
             itemName: "Rinso",
             itemPrice: 36000,
             modalPrice: 34000,
-            quantity: 24
+            quantity: 24,
           },
           {
             itemImage: "/PeralatanRumahTangga/SapuLidi.jpg",
             itemName: "SapuLidi",
             itemPrice: 18000,
             modalPrice: 15000,
-            quantity: 40
+            quantity: 40,
           },
           {
             itemImage: "/PeralatanRumahTangga/Sunlight.jpeg",
             itemName: "Sunlight",
             itemPrice: 24000,
             modalPrice: 22000,
-            quantity: 40
+            quantity: 40,
           },
           {
             itemImage: "/PeralatanRumahTangga/SuperPel.jpg",
             itemName: "SuperPel",
             itemPrice: 18000,
             modalPrice: 16000,
-            quantity: 40
-          }
-        ]
+            quantity: 40,
+          },
+        ],
       },
       {
         categoryID: 2,
@@ -99,43 +99,43 @@ let hactiventory = [
             itemName: "Biore",
             itemPrice: 18000,
             modalPrice: 16000,
-            quantity: 40
+            quantity: 40,
           },
           {
             itemImage: "/KesehatanDanKecantikan/Garnier.jpg",
             itemName: "Garnier",
             itemPrice: 25000,
             modalPrice: 23500,
-            quantity: 24
+            quantity: 24,
           },
           {
             itemImage: "/KesehatanDanKecantikan/Kahf.jpg",
             itemName: "Kahf",
             itemPrice: 24000,
             modalPrice: 23000,
-            quantity: 40
+            quantity: 40,
           },
           {
             itemImage: "/KesehatanDanKecantikan/Kelly.jpg",
             itemName: "Kelly",
             itemPrice: 25000,
             modalPrice: 23500,
-            quantity: 40
+            quantity: 40,
           },
           {
             itemImage: "/KesehatanDanKecantikan/Zinc.jpg",
             itemName: "Zinc",
             itemPrice: 18000,
             modalPrice: 16000,
-            quantity: 40
-          }
-        ]
-      }
+            quantity: 40,
+          },
+        ],
+      },
     ],
     order: {
       orderID: 0,
-      orderCategory: 1
-    }
+      orderCategory: 1,
+    },
   },
   // object yang kedua
   {
@@ -155,37 +155,37 @@ let hactiventory = [
             itemName: "Indomie",
             itemPrice: 4000,
             modalPrice: 3000,
-            quantity: 40
+            quantity: 40,
           },
           {
             itemImage: "/MakananDanMinuman/PocariSweat.jpeg",
             itemName: "PocariSweat",
             itemPrice: 5000,
             modalPrice: 3500,
-            quantity: 24
+            quantity: 24,
           },
           {
             itemImage: "/MakananDanMinuman/PopMie.jpg",
             itemName: "PopMie",
             itemPrice: 6000,
             modalPrice: 4000,
-            quantity: 24
+            quantity: 24,
           },
           {
             itemImage: "/MakananDanMinuman/SilverQueen.jpg",
             itemName: "SilverQueen",
             itemPrice: 16000,
             modalPrice: 13500,
-            quantity: 24
+            quantity: 24,
           },
           {
             itemImage: "/MakananDanMinuman/SlaiOlai.jpeg",
             itemName: "SlaiOlai",
             itemPrice: 6000,
             modalPrice: 4000,
-            quantity: 24
-          }
-        ]
+            quantity: 24,
+          },
+        ],
       },
       {
         categoryID: 1,
@@ -196,37 +196,37 @@ let hactiventory = [
             itemName: "MamaLemon",
             itemPrice: 20000,
             modalPrice: 17500,
-            quantity: 40
+            quantity: 40,
           },
           {
             itemImage: "/PeralatanRumahTangga/Rinso.jpg",
             itemName: "Rinso",
             itemPrice: 36000,
             modalPrice: 34000,
-            quantity: 24
+            quantity: 24,
           },
           {
             itemImage: "/PeralatanRumahTangga/SapuLidi.jpg",
             itemName: "SapuLidi",
             itemPrice: 18000,
             modalPrice: 15000,
-            quantity: 40
+            quantity: 40,
           },
           {
             itemImage: "/PeralatanRumahTangga/Sunlight.jpeg",
             itemName: "Sunlight",
             itemPrice: 24000,
             modalPrice: 22000,
-            quantity: 40
+            quantity: 40,
           },
           {
             itemImage: "/PeralatanRumahTangga/SuperPel.jpg",
             itemName: "SuperPel",
             itemPrice: 18000,
             modalPrice: 16000,
-            quantity: 40
-          }
-        ]
+            quantity: 40,
+          },
+        ],
       },
       {
         categoryID: 2,
@@ -237,43 +237,43 @@ let hactiventory = [
             itemName: "Biore",
             itemPrice: 18000,
             modalPrice: 16000,
-            quantity: 40
+            quantity: 40,
           },
           {
             itemImage: "/KesehatanDanKecantikan/Garnier.jpg",
             itemName: "Garnier",
             itemPrice: 25000,
             modalPrice: 23500,
-            quantity: 24
+            quantity: 24,
           },
           {
             itemImage: "/KesehatanDanKecantikan/Kahf.jpg",
             itemName: "Kahf",
             itemPrice: 24000,
             modalPrice: 23000,
-            quantity: 40
+            quantity: 40,
           },
           {
             itemImage: "/KesehatanDanKecantikan/Kelly.jpg",
             itemName: "Kelly",
             itemPrice: 25000,
             modalPrice: 23500,
-            quantity: 40
+            quantity: 40,
           },
           {
             itemImage: "/KesehatanDanKecantikan/Zinc.jpg",
             itemName: "Zinc",
             itemPrice: 18000,
             modalPrice: 16000,
-            quantity: 40
-          }
-        ]
-      }
+            quantity: 40,
+          },
+        ],
+      },
     ],
     order: {
       orderID: 0,
-      orderCategory: 1
-    }
+      orderCategory: 1,
+    },
   },
   {
     userID: 1,
@@ -281,5 +281,5 @@ let hactiventory = [
     nama: "Keanu Reeve",
     email: "keanureeve@gmail.com",
     password: "12345",
-  }
+  },
 ];
