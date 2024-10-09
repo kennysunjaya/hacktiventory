@@ -1,3 +1,84 @@
+////////////////////////////////////// Coding RAGA/////////////////////////////////
+
+// let hasil;
+// let email = `johndoe@gmail.com`
+// let passcontoh = "12345"
+
+// function encryptPassword(password) {
+//   return btoa(password);
+// }
+
+// let pass = encryptPassword(passcontoh) // encryptedPassword Base
+// console.log(pass);
+// function decryptPassword(encryptedPassword) {
+//   return atob(encryptedPassword); // Decrypt hasil encrypt
+// }
+
+// let hasildecryp = decryptPassword(pass)
+// console.log(hasildecryp);
+
+// ////  Konversi array objek ke string dan simpan ke sessionStorage
+// sessionStorage.setItem("hactiventory", JSON.stringify(hactiventory));
+
+// // . Ambil kembali data dari sessionStorage
+// const storedhactiventory = sessionStorage.getItem("hactiventory");
+
+// // . Konversi string kembali menjadi array objek
+// const parsedhactiventory = JSON.parse(storedhactiventory);
+
+// console.log([parsedhactiventory]);
+
+//authorization
+function Login() {
+  // console.log(`hehe`);
+
+  for (let i = 0; i < hactiventory.length; i++) {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    // console.log(email , hactiventory[i]["email"])
+    if (
+      email == hactiventory[i]["email"] &&
+      password == hactiventory[i]["password"]
+    ) {
+      // console.log(hactiventory[i]);
+      window.location.href = "../home.html";
+      break;
+    } else if (
+      email !== hactiventory[i]["email"] &&
+      password !== hactiventory[i]["password"]
+    ) {
+      console.log(`login yang anda masukan salah`);
+      break;
+    }
+  }
+}
+
+// delete aray
+
+const array = [
+  { id: 1, name: "John" },
+  { id: 2, name: "Doe" },
+  { id: 3, name: "Jane" },
+];
+
+//nama yang ingin dihapus
+const nameToDelete = `John`;
+
+for (let i = 0; i < array.length; i++) {
+  if (array[i].name === nameToDelete) {
+    for (let j = i; j < array.length - 1; j++) {
+      array[j] = array[j + 1];
+    }
+    //hapus elemen terakhir(karena sudah digeser kedepan)
+    array.length--;
+    break; //keluar dari loop setelah objek ditemukan
+  }
+}
+
+console.log(array);
+
+////////////////////////////////////// Coding KENNY /////////////////////////////////
+
 /** Local Storage */
 let hactiventory = [
   // object yang pertama
@@ -284,20 +365,41 @@ let hactiventory = [
 
 // function untuk menyimpan hackTiventory ke local storage
 function initializeLocalStorage() {
-  localStorage.setItem("hackTiventory", JSON.stringify(hactiventory));
+  // mengambil hackTinventory dan memasukkannya ke variabel existing inventory
+  let existingInventory = localStorage.getItem("hackTinventory");
+  // kalau di localstorage tidak ada object hackTinventory
+  if (!existingInventory) {
+    // kalau tidak ada object, maka setItemnya di dalam local storage
+    localStorage.setItem("hackTinventory", JSON.stringify(hactiventory));
+  } else {
+    // kalau ada objectnya di local storage
+    let inventoryArray = JSON.parse(existingInventory);
+    // looping hactiventory yang awal
+    for (let user of hactiventory) {
+      if (
+        !inventoryArray.some(
+          (existingUser) => existingUser.email === user.email
+        )
+      ) {
+        inventoryArray.push(user);
+      }
+    }
+    localStorage.setItem("hackTinventory", JSON.stringify(inventoryArray));
+  }
 }
 
 // function untuk mengambil hactIventory dari local storage
 function getHackTinventory() {
-  return JSON.parse(localStorage.getItem("hackTiventory")) || [];
+  return JSON.parse(localStorage.getItem("hackTinventory")) || [];
 }
+
 initializeLocalStorage();
 // selesai mengambil ke dan dari local storage
 
 /** Fungsi cek repeat password dan email duplikat */
-function noRepeatPassword(userInfo) {
-  return userInfo["password"] === userInfo["repeatPassword"];
-}
+// function noRepeatPassword(userInfo) {
+//   return userInfo["password"] === userInfo["repeatPassword"];
+// }
 
 function noEmailDuplicate(userInfo) {
   let hackTinventory = getHackTinventory();
@@ -312,19 +414,21 @@ function noEmailDuplicate(userInfo) {
 /** Function Register */
 function register() {
   let userInfo = {
-    name: document.getElementById("nama").value,
+    userProfilePicture: "default.png",
+    nama: document.getElementById("nama").value,
     email: document.getElementById("email").value,
     password: document.getElementById("newPassword").value,
-    repeatPassword: document.getElementById("repeatNewPassword").value,
     category: [],
     order: {},
   };
-  if (noRepeatPassword(userInfo) && noEmailDuplicate(userInfo)) {
+  let repeatPassword = document.getElementById("repeatNewPassword").value;
+  // ngecek email duplikat dan password repeat
+  if (repeatPassword === userInfo["password"] && noEmailDuplicate(userInfo)) {
     let hackTinventory = getHackTinventory();
     hackTinventory.push(userInfo);
-    localStorage.setItem("hackTiventory", JSON.stringify(hackTiventory));
+    localStorage.setItem("hackTinventory", JSON.stringify(hackTinventory));
     console.log("Registration successful");
-  } else if (noRepeatPassword(userInfo) === false) {
+  } else if (repeatPassword !== userInfo["password"]) {
     console.log("Password diulang dengan salah");
   } else if (noEmailDuplicate(userInfo) == false) {
     console.log("Email sudah dipakai");
@@ -352,3 +456,54 @@ function register() {
 // // //   }
 // // //   return db_user;
 // // // }
+
+function loadNavbar() {
+  const navbar = `
+        <nav class="navbar navbar-expand-md bg-light sticky-top  p-0 m-0">
+        <div class="container-fluid navigasi">
+          <a class="navbar-brand" href="../view/profile.html"><img src="../img/userPhoto/HACKTIVENTORY.png" alt="" style="width: 230px; margin-left: 7px;"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="d-flex flex-row-reverse mx-4">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">    
+
+
+    <!-- link home -->
+    <li class="nav-item mx-2 button1 rounded-pill btn ">
+        <a class="nav-link active" aria-current="page" href="../view/home.html">Home</a>
+    </li>
+    
+    <!-- link About -->
+    <li class="nav-item mx-2 button1 rounded-pill btn">
+        <a  class="nav-link active " href="./about.html">About</a>
+    </li>
+</ul>
+
+<!-- drop down profile -->
+
+<div class="dropdown">
+    <button class="btn button dropdown-toggle rounded-pill" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="loginButton">
+        <img src="../img/userPhoto/default.png" class="img" alt="..." style="width: 20px; height: 20px;">
+        Hacktiv8
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item my-1" href="./profile.html">Profile</a></li>
+        <li><a class="dropdown-item my-1" href="./auth/login.html">Log out</a></li>
+    </ul>
+</div>
+</div>
+</div>
+</div>
+    </nav>`;
+  document.getElementById("navbar").innerHTML = navbar;
+}
+
+function loadFooter() {
+  const footer = `
+      <div class="footer p-1" style=" width: auto; text-align: center;">
+        Ultramarine Fox @2024
+    </div>`;
+  document.getElementById("footer").innerHTML = footer;
+}

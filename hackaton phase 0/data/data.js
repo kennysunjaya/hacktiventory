@@ -281,5 +281,13 @@ let hactiventory = [
     nama: "Keanu Reeve",
     email: "keanureeve@gmail.com",
     password: "12345",
+<<<<<<< HEAD
+  }
+];
+
+
+
+=======
   },
 ];
+>>>>>>> a9344c84a97e9a155a949146c55e1d9975c30f45
