@@ -1,3 +1,84 @@
+////////////////////////////////////// Coding RAGA/////////////////////////////////
+
+// let hasil;
+// let email = `johndoe@gmail.com`
+// let passcontoh = "12345"
+
+// function encryptPassword(password) {
+//   return btoa(password);
+// }
+
+// let pass = encryptPassword(passcontoh) // encryptedPassword Base
+// console.log(pass);
+// function decryptPassword(encryptedPassword) {
+//   return atob(encryptedPassword); // Decrypt hasil encrypt
+// }
+
+// let hasildecryp = decryptPassword(pass)
+// console.log(hasildecryp);
+
+// ////  Konversi array objek ke string dan simpan ke sessionStorage
+// sessionStorage.setItem("hactiventory", JSON.stringify(hactiventory));
+
+// // . Ambil kembali data dari sessionStorage
+// const storedhactiventory = sessionStorage.getItem("hactiventory");
+
+// // . Konversi string kembali menjadi array objek
+// const parsedhactiventory = JSON.parse(storedhactiventory);
+
+// console.log([parsedhactiventory]);
+
+//authorization
+function Login() {
+  // console.log(`hehe`);
+
+  for (let i = 0; i < hactiventory.length; i++) {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    // console.log(email , hactiventory[i]["email"])
+    if (
+      email == hactiventory[i]["email"] &&
+      password == hactiventory[i]["password"]
+    ) {
+      // console.log(hactiventory[i]);
+      window.location.href = "../home.html";
+      break;
+    } else if (
+      email !== hactiventory[i]["email"] &&
+      password !== hactiventory[i]["password"]
+    ) {
+      console.log(`login yang anda masukan salah`);
+      break;
+    }
+  }
+}
+
+// delete aray
+
+const array = [
+  { id: 1, name: "John" },
+  { id: 2, name: "Doe" },
+  { id: 3, name: "Jane" },
+];
+
+//nama yang ingin dihapus
+const nameToDelete = `John`;
+
+for (let i = 0; i < array.length; i++) {
+  if (array[i].name === nameToDelete) {
+    for (let j = i; j < array.length - 1; j++) {
+      array[j] = array[j + 1];
+    }
+    //hapus elemen terakhir(karena sudah digeser kedepan)
+    array.length--;
+    break; //keluar dari loop setelah objek ditemukan
+  }
+}
+
+console.log(array);
+
+////////////////////////////////////// Coding KENNY /////////////////////////////////
+
 /** Local Storage */
 let hactiventory = [
   // object yang pertama
