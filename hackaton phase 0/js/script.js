@@ -503,7 +503,7 @@ function loadNavbar() {
 
 function loadFooter() {
     const footer = `
-      <div class="footer fixed-bottom p-1" style=" width: auto; text-align: center;">
+      <div class="footer p-1" style="width: auto; text-align: center; position:relative; top: 0;">
         Ultramarine Fox @2024
     </div>`;
     document.getElementById("footer").innerHTML = footer;
