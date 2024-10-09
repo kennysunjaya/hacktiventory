@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /** Local Storage */
 let hactiventory = [
   // object yang pertama
@@ -284,17 +283,39 @@ let hactiventory = [
 ];
 
 function initializeLocalStorage() {
-  localStorage.setItem("hackTiventory", JSON.stringify(hactiventory));
+  // mengambil hackTinventory dan memasukkannya ke variabel existing inventory
+  let existingInventory = localStorage.getItem("hackTinventory");
+  // kalau di localstorage tidak ada object hackTinventory
+  if (!existingInventory) {
+    // kalau tidak ada object, maka setItemnya di dalam local storage
+    localStorage.setItem("hackTinventory", JSON.stringify(hactiventory));
+  } else {
+    // kalau ada objectnya di local storage
+    let inventoryArray = JSON.parse(existingInventory);
+    // looping hactiventory yang awal
+    for (let user of hactiventory) {
+      if (
+        !inventoryArray.some(
+          (existingUser) => existingUser.email === user.email
+        )
+      ) {
+        inventoryArray.push(user);
+      }
+    }
+    localStorage.setItem("hackTinventory", JSON.stringify(inventoryArray));
+  }
 }
+
 function getHackTinventory() {
-  return JSON.parse(localStorage.getItem("hackTiventory")) || [];
+  return JSON.parse(localStorage.getItem("hackTinventory")) || [];
 }
+
 initializeLocalStorage();
 
 /** Fungsi cek repeat password dan email duplikat */
-function noRepeatPassword(userInfo) {
-  return userInfo["password"] === userInfo["repeatPassword"];
-}
+// function noRepeatPassword(userInfo) {
+//   return userInfo["password"] === userInfo["repeatPassword"];
+// }
 
 function noEmailDuplicate(userInfo) {
   let hackTinventory = getHackTinventory();
@@ -309,19 +330,21 @@ function noEmailDuplicate(userInfo) {
 /** Function Register */
 function register() {
   let userInfo = {
-    name: document.getElementById("nama").value,
+    userProfilePicture: "default.png",
+    nama: document.getElementById("nama").value,
     email: document.getElementById("email").value,
     password: document.getElementById("newPassword").value,
-    repeatPassword: document.getElementById("repeatNewPassword").value,
     category: [],
     order: {},
   };
-  if (noRepeatPassword(userInfo) && noEmailDuplicate(userInfo)) {
+  let repeatPassword = document.getElementById("repeatNewPassword").value;
+  // ngecek email duplikat dan password repeat
+  if (repeatPassword === userInfo["password"] && noEmailDuplicate(userInfo)) {
     let hackTinventory = getHackTinventory();
     hackTinventory.push(userInfo);
-    localStorage.setItem("hackTiventory", JSON.stringify(hackTiventory));
+    localStorage.setItem("hackTinventory", JSON.stringify(hackTinventory));
     console.log("Registration successful");
-  } else if (noRepeatPassword(userInfo) === false) {
+  } else if (repeatPassword !== userInfo["password"]) {
     console.log("Password diulang dengan salah");
   } else if (noEmailDuplicate(userInfo) == false) {
     console.log("Email sudah dipakai");
@@ -349,7 +372,7 @@ function register() {
 // // //   }
 // // //   return db_user;
 // // // }
-=======
+
 function loadNavbar() {
   const navbar = `
         <nav class="navbar navbar-expand-md bg-light sticky-top  p-0 m-0">
@@ -400,4 +423,3 @@ function loadFooter() {
     </div>`;
   document.getElementById("footer").innerHTML = footer;
 }
->>>>>>> 6e019c9aff2e22fcce87c6687f675c3a9c48f358
