@@ -401,6 +401,7 @@ initializeLocalStorage();
 //   return userInfo["password"] === userInfo["repeatPassword"];
 // }
 
+// DONE COPAS to auth by Kelvin
 function noEmailDuplicate(userInfo) {
     let hackTinventory = getHackTinventory();
     for (let i = 0; i < hackTinventory.length; i++) {
