@@ -2,3 +2,40 @@
   margin: 0;
   padding: 0;
 }
+
+.dropdown-menu .dropdown-item {
+  padding: 10px 20px; /* Atur padding sesuai keinginan */
+  background-color: #ffffff; /* Warna background default */
+}
+.dropdown-menu .dropdown-item:hover {
+  padding: 10px 20px; /* Atur padding sesuai keinginan */
+  background-color: #797979; /* Warna background default */
+}
+
+/* Mengubah background saat di-hover */
+
+.navigasi {
+  background-color: #feb662;
+}
+
+.footer {
+  background-color: #feb662;
+}
+
+.button {
+  background-color: #639ff8;
+}
+
+.button:hover {
+  transition: 0.5s;
+  background-color: #0066ff;
+}
+
+.button1 {
+  background-color: #ff6f00;
+}
+
+.button1:hover {
+  transition: 0.5s;
+  background-color: #fa4300;
+}
