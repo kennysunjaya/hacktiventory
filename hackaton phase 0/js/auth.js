@@ -145,39 +145,38 @@ let hactiventory = [
                 ]
             }
         ]
-    },
-  ]
+    }
+];
 
 // authorization
 
 // create user
 /** Function Register */
 function register() {
-  let userInfo = {
-    userProfilePicture: "default.png",
-    nama: document.getElementById("fullname").value,
-    email: document.getElementById("email").value,
-    password: document.getElementById("password").value,
-    category: [],
-    order: {},
-  };
-  let repeatPassword = document.getElementById("repeatPassword").value;
+    let userInfo = {
+        userProfilePicture: "default.png",
+        nama: document.getElementById("fullname").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        category: [],
+        order: {}
+    };
+    let repeatPassword = document.getElementById("repeatPassword").value;
 
-  if (repeatPassword !== userInfo["password"]) {
-    alert("Passwords do not match!");
-    return;
-  }
+    if (repeatPassword !== userInfo["password"]) {
+        alert("Passwords do not match!");
+        return;
+    }
 
-  if (noEmailDuplicate(userInfo)) {
-    let hackTinventory = getHackTinventory();
-    hackTinventory.push(userInfo);
-    localStorage.setItem("hackTinventory", JSON.stringify(hackTinventory));
-    alert("Registration successful");
-    window.location.href =
-      "file:///C:/Users/Kenny/Documents/Hacktiventory/hackaton%20phase%200/index.html";
-  } else {
-    alert("Email is already in use!");
-  }
+    if (noEmailDuplicate(userInfo)) {
+        let hackTinventory = getHackTinventory();
+        hackTinventory.push(userInfo);
+        localStorage.setItem("hackTinventory", JSON.stringify(hackTinventory));
+        alert("Registration successful");
+        window.location.href = "file:///C:/Users/Kenny/Documents/Hacktiventory/hackaton%20phase%200/index.html";
+    } else {
+        alert("Email is already in use!");
+    }
 }
 
 function noEmailDuplicate(userInfo) {
@@ -234,32 +233,48 @@ function login() {
         if (email == hackTinventory[i]["email"] && password == hackTinventory[i]["password"]) {
             console.log("Login successful");
             // Redirect ke halaman home setelah login sukses
+
+            // mengambil item
+            let item = [];
+            for (let j = 0; j < hackTinventory[i].category.length; j++) {
+                let temp = {};
+                let category = hackTinventory[i].category;
+                let perCategory = category[j];
+                let categoryName = perCategory.categoryName;
+                let itemPercategory = perCategory.item;
+                for (let k = 0; k < itemPercategory.length; k++) {
+                    temp.category = categoryName;
+                    temp.itemImage = itemPercategory[k].itemImage;
+                    temp.itemName = itemPercategory[k].itemName;
+                    temp.itemPrice = itemPercategory[k].itemPrice;
+                    temp.modalPrice = itemPercategory[k].modalPrice;
+                    temp.quantity = itemPercategory[k].quantity;
+                    item.push(temp);
+                }
+            }
+
+            // memasukkan semua data yang dibutuhkan ke dalam userData
             let userData = {
                 user: {
                     nama: hackTinventory[i].nama,
-                    email: hackTinventory[i].email,
+                    email: hackTinventory[i].email
                 },
                 category: hackTinventory[i].category,
                 order: hackTinventory[i].order,
-                // item: hackTinventory[i].category.item
+                item: item
             };
-            // let user = {
-            //     nama:hackTinventory[i].nama,
-            //     email: hackTinventory[i].email,
-            // }
-            // let category = hackTinventory[i].category
-            // let order = hackTinventory[i]
-             // Menyimpan userData ke session storage
-             sessionStorage.setItem("user", JSON.stringify(userData.user));
-             sessionStorage.setItem("category", JSON.stringify(userData.category));
-             sessionStorage.setItem("order", JSON.stringify(userData.order));
-            //  sessionStorage.setItem("item", JSON.stringify(userData.category.item));
 
-               // Mengeluarkan object userData
-               console.log(userData);
-               
-               
-               window.location.href = "view/about.html";
+            // Menyimpan userData ke session storage
+            sessionStorage.setItem("user", JSON.stringify(userData.user));
+            sessionStorage.setItem("category", JSON.stringify(userData.category));
+            sessionStorage.setItem("order", JSON.stringify(userData.order));
+            sessionStorage.setItem("item", JSON.stringify(userData.item));
+
+            // Mengeluarkan object userData
+            console.log(userData);
+
+            // nanti nyalakan setelah console.log keluar
+            window.location.href = "view/about.html";
             return userData; // Menghentikan fungsi jika login berhasil
         }
     }

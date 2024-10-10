@@ -501,6 +501,11 @@ function loadNavbar() {
 </div>
     </nav>`;
     document.getElementById("navbar").innerHTML = navbar;
+
+    // mengatur tombol loginButton dengan nama user yang ada di storage
+    const loginButton = document.getElementById("loginButton");
+    let user = JSON.parse(sessionStorage.getItem("user"));
+    loginButton.innerHTML = user.nama;
 }
 
 function loadFooter() {
