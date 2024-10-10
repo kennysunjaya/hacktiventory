@@ -149,7 +149,7 @@ let userInfo =
 
 // create category
 function addCategory(userInfo, namaKategori) {
-  let category = userInfo["category"];
+  let category = userInfo["categoryName"];
   let kategoriSudahAda = false;
   for (let i = 0; i < category.length; i++) {
     if (namaKategori === category[i]["categoryName"]) {
@@ -167,7 +167,7 @@ function addCategory(userInfo, namaKategori) {
     userInfo["category"].push(newCategory);
   }
 }
-//TEST CASE
+// // TEST CASE
 // console.log(addCategory(userInfo, "Kenny"));
 // console.log(userInfo);
 
@@ -177,7 +177,7 @@ function getCategory(userInfo, namaKategori) {
   let categoryFound = false;
   for (let i = 0; i < category.length; i++) {
     if (category[i]["categoryName"] === namaKategori) {
-      console.log(category[i]["item"]);
+      console.log(category[i]);
       categoryFound = true;
     }
   }
@@ -185,27 +185,26 @@ function getCategory(userInfo, namaKategori) {
     console.log("Kategori Tidak Ditemukan");
   }
 }
-//TEST CASE
+// TEST CASE
 // console.log(getCategory(userInfo, "Kesehatan & Kecantikan"));
-// console.log(userInfo);
 
 // updatecategory
-function updateCategory(userInfo, namaKategori, namaItem, itemValue) {
+function updateCategory(userInfo, namaKategori, namaBaruKategori) {
   let category = userInfo["category"];
   let categoryFound = false;
   for (let i = 0; i < category.length; i++) {
     if (category[i]["categoryName"] === namaKategori) {
-      // MASUKKAN FUNGSI UPDATE ITEM DISINI
       categoryFound = true;
+      category[i]["categoryName"] = namaBaruKategori;
+      console.log(category);
     }
   }
   if (categoryFound === false) {
     console.log("Kategori Tidak Ditemukan");
   }
 }
-//TEST CASE
-// console.log(updateCategory(userInfo, "Kesehatan & Kecantikan", namaItem, itemValue ));
-// console.log(userInfo);
+// //TEST CASE
+// console.log(updateCategory(userInfo, "Kesehatan & Kecantikan", "Kesehatan"));
 
 // delete category
 function deleteCategory(userInfo, namaKategori) {
@@ -219,5 +218,5 @@ function deleteCategory(userInfo, namaKategori) {
   userInfo["category"] = newCategory;
 }
 //TEST CASE
-// console.log(deleteCategory(userInfo, "Kesehatan & Kecantikan"));
-// console.log(userInfo);
+console.log(deleteCategory(userInfo, "Peralatan Rumah Tangga"));
+console.log(userInfo);
