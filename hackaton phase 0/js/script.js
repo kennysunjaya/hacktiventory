@@ -484,28 +484,30 @@ function loadNavbar() {
                 <a  class="nav-link active " href="./ourstory.html">Our Story</a>
             </li>
         </ul>
-<!-- drop down profile -->
+        <!-- drop down profile -->
 
-<div class="dropdown">
-    <button class="btn button dropdown-toggle rounded-pill" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="loginButton">
-        <img src="../img/userPhoto/default.png" class="img" alt="..." style="width: 20px; height: 20px;">
-        Hacktiv8
-    </button>
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item my-1" href="./profile.html">Profile</a></li>
-        <li><a class="dropdown-item my-1" href="../index.html">Log out</a></li>
-    </ul>
-</div>
-</div>
-</div>
-</div>
+        <div class="dropdown">
+            <button class="btn button dropdown-toggle rounded-pill" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="loginButton">
+                <img src="../img/userPhoto/default.png" class="img" alt="..." style="width: 20px; height: 20px;">
+                Hacktiv8
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item my-1" href="./profile.html">Profile</a></li>
+                <li><a class="dropdown-item my-1" type="button" onclick="logout()">Log out</a></li>
+            </ul>
+        </div>
+        </div>
+        </div>
+        </div>
     </nav>`;
     document.getElementById("navbar").innerHTML = navbar;
 
     // mengatur tombol loginButton dengan nama user yang ada di storage
     const loginButton = document.getElementById("loginButton");
+    const welcome = document.getElementById("welcome");
     let user = JSON.parse(sessionStorage.getItem("user"));
     loginButton.innerHTML = user.nama;
+    welcome.innerHTML = `Welcome ` + user.nama + "!";
 }
 
 function loadFooter() {
@@ -528,3 +530,8 @@ function adjustContentHeight() {
 
 window.addEventListener("resize", adjustContentHeight);
 window.addEventListener("load", adjustContentHeight);
+
+function logout() {
+    sessionStorage.clear();
+    window.location.href = "http://127.0.0.1:5500/hackaton%20phase%200/index.html";
+}
