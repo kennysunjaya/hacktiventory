@@ -235,11 +235,20 @@ function login() {
                     email: hackTinventory[i].email,
                 },
                 category: hackTinventory[i].category,
-                order: hackTinventory[i].order
+                order: hackTinventory[i].order,
+                // item: hackTinventory[i].category.item
             };
-
+            // let user = {
+            //     nama:hackTinventory[i].nama,
+            //     email: hackTinventory[i].email,
+            // }
+            // let category = hackTinventory[i].category
+            // let order = hackTinventory[i]
              // Menyimpan userData ke session storage
-             sessionStorage.setItem("userData", JSON.stringify(userData));
+             sessionStorage.setItem("user", JSON.stringify(userData.user));
+             sessionStorage.setItem("category", JSON.stringify(userData.category));
+             sessionStorage.setItem("order", JSON.stringify(userData.order));
+            //  sessionStorage.setItem("item", JSON.stringify(userData.category.item));
 
                // Mengeluarkan object userData
                console.log(userData);
