@@ -134,15 +134,12 @@ button {
   color: #fff;
   font-weight: 500;
   transition: 0.5s;
-<<<<<<< HEAD
 }
 
 button:hover{
   border: 5px solid #ffcf96;
   box-shadow: 0 0 20px #ffcf96, inset 0 0 20px #ffcf96;
   background:  #ffcf96 ;
-=======
->>>>>>> f5d5c7eef3742114a0c626901f47931d5e8d6877
 }
 
 /* .wrapper:hover button {
