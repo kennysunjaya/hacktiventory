@@ -507,7 +507,7 @@ function loadNavbar() {
     const welcome = document.getElementById("welcome");
     let user = JSON.parse(sessionStorage.getItem("user"));
     loginButton.innerHTML = user.nama;
-    welcome.innerHTML = `Welcome ` + user.nama + "!";
+    welcome.innerHTML = `Welcome, ` + user.nama + "!";
 }
 
 function loadFooter() {
@@ -532,6 +532,42 @@ window.addEventListener("resize", adjustContentHeight);
 window.addEventListener("load", adjustContentHeight);
 
 function logout() {
-    sessionStorage.clear();
-    window.location.href = "http://127.0.0.1:5500/hackaton%20phase%200/index.html";
+    // 1. satukan session storage
+    let user = groupingUser();
+
+    // menghapus session storage
+    // sessionStorage.clear();
+
+    // window.location.href = "http://127.0.0.1:5500/hackaton%20phase%200/index.html";
+}
+
+function groupingUser() {
+    let result = {};
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    // console.log(user.email);
+    // 2. delete object yang ada di localstorage yang sama dengan user email
+    deleteUserLocalStorage(user.email);
+
+    const category = JSON.parse(sessionStorage.getItem("category"));
+    const item = JSON.parse(sessionStorage.getItem("item"));
+    const order = JSON.parse(sessionStorage.getItem("order"));
+
+    return result;
+}
+
+function deleteUserLocalStorage(userEmail) {
+    // console.log(userEmail);
+    let user = JSON.parse(localStorage.getItem("hackTinventory"));
+    console.log(user);
+
+    for (let key of user) {
+        let perUser = key;
+        for (let key in perUser) {
+            // ambil email yang ada di local storage
+            let email = perUser.email;
+            console.log(email, userEmail);
+            if (email == userEmail) {
+            }
+        }
+    }
 }
