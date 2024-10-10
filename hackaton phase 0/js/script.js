@@ -469,19 +469,21 @@ function loadNavbar() {
           <div class="d-flex flex-row-reverse mx-4">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">    
-
-
-    <!-- link home -->
-    <li class="nav-item mx-2 button1 rounded-pill btn ">
-        <a class="nav-link active" aria-current="page" href="../view/home.html">Home</a>
-    </li>
-    
-    <!-- link About -->
-    <li class="nav-item mx-2 button1 rounded-pill btn">
-        <a  class="nav-link active " href="./about.html">About</a>
-    </li>
-</ul>
-
+            <!-- link home -->
+            <li class="nav-item mx-2 button1 rounded-pill btn ">
+                <a class="nav-link active" aria-current="page" href="../view/home.html">Home</a>
+            </li>
+            
+            <!-- link About -->
+            <li class="nav-item mx-2 button1 rounded-pill btn">
+                <a  class="nav-link active " href="./about.html">About</a>
+            </li>
+            
+            <!-- link Our Story -->
+            <li class="nav-item mx-2 button1 rounded-pill btn">
+                <a  class="nav-link active " href="./ourstory.html">Our Story</a>
+            </li>
+        </ul>
 <!-- drop down profile -->
 
 <div class="dropdown">
