@@ -13,30 +13,35 @@
             };
         </script>
 
-<style>
-    .card {
-      border-radius: 20px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .card img {
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      margin: 20px auto;
-    }
-    .card-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-    .btn-about {
-      background-color: #ff9800;
-      color: white;
-      border-radius: 20px;
-    }
-    .stars {
-      color: gold;
-    }
-  </style>
+        <style>
+            .card {
+                border-radius: 20px;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            .card img {
+                border-radius: 50%;
+                width: 100px;
+                height: 100px;
+                margin: 20px auto;
+            }
+            .card-title {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+            .btn-about {
+                background-color: #ff9800;
+                color: white;
+                border-radius: 20px;
+            }
+            .stars {
+                color: gold;
+            }
+
+            .card:hover {
+                border: 5px solid #ffcf96;
+                box-shadow: 0 0 5px #ffcf96, inset 0 0 5px #ffcf96;
+            }
+        </style>
     </head>
 
     <body>
@@ -46,116 +51,138 @@
 
         <!-- content section start -->
         <div class="container pt-4" style="min-height: 100vh">
-            <h1 style="margin-top: 10px;">Latar Belakang</h1>
+            <h1 style="margin-top: 10px">Latar Belakang</h1>
             <p>Dalam era digital saat ini, efisiensi dan akurasi dalam pengelolaan inventaris menjadi sangat penting bagi perusahaan. Banyak perusahaan masih menggunakan metode manual atau spreadsheet seperti Microsoft Excel untuk mengelola data inventaris mereka. Metode ini sering kali menyebabkan ketidaksesuaian data, kehilangan informasi, dan kesalahan manusia yang dapat berdampak negatif pada operasional perusahaan.</p>
             <p>Untuk mengatasi masalah ini, kelompok kami berencana untuk mengembangkan sebuah sistem pengecekan inventaris berbasis web. Sistem ini akan memungkinkan pengguna untuk melakukan pengecekan barang secara real-time, mengurangi risiko kesalahan, dan meningkatkan efisiensi pengelolaan inventaris. Dengan sistem ini, data inventaris akan tersimpan secara terpusat dalam basis data yang aman, sehingga memudahkan akses dan pengelolaan informasi.</p>
             <p>Pengembangan sistem ini menggunakan metode Agile Development, yang memungkinkan pengembangan perangkat lunak secara bertahap dan melibatkan pengguna dalam setiap tahapannya. Dengan pendekatan ini, kami berharap dapat menghasilkan sistem yang tidak hanya memenuhi kebutuhan pengguna tetapi juga mudah diadaptasi dan dikembangkan lebih lanjut sesuai dengan perubahan kebutuhan bisnis.</p>
 
             <div>
-                <h1 style="text-align: center; margin-top: 100px; margin-bottom: 40px;">Meet Our team</h1>
+                <h1 style="text-align: center; margin-top: 100px; margin-bottom: 40px">Meet Our team</h1>
                 <!-- carousel di sini, Nopal atau Grace edit di sini-->
-                <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-bottom: 20px;" >
+                <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-bottom: 20px">
                     <div class="carousel-inner">
-                      <!-- Slide 1 -->
-                      <div class="carousel-item active">
-                        <div class="row justify-content-center">
-                          <div class="col-md-4">
-                            <div class="card p-3 mx-2">
-                              <img src="../img/meetus/grace.JPG" alt="Grace">
-                              <div class="card-body text-center">
-                                <h5 class="card-title">Grace</h5>
-                                <p class="card-text">Front End Design</p>
-                                <div class="stars">
-                                  &#9733; &#9733; &#9733; &#9733; &#9733;
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4">
+                                    <div class="card p-3 mx-2">
+                                        <img src="../img/meetus/grace.JPG" alt="Grace" />
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Grace</h5>
+                                            <p class="card-text">Front End Design</p>
+                                            <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+                                            <a href="https://github.com/gracewinata" target="_blank"><button class="btn btn-about mt-3">Github</button></a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a href="https://github.com/gracewinata" target="_blank"><button class="btn btn-about mt-3">Github</button></a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="card p-3 mx-2">
-                              <img src="../img/meetus/raga.JPG" alt="Raga">
-                              <div class="card-body text-center">
-                                <h5 class="card-title">Raga</h5>
-                                <p class="card-text">Back End Developer</p>
-                                <div class="stars">
-                                  &#9733; &#9733; &#9733; &#9733; &#9733;
+                                <div class="col-md-4">
+                                    <div class="card p-3 mx-2">
+                                        <img src="../img/meetus/raga.JPG" alt="Raga" />
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Raga</h5>
+                                            <p class="card-text">Back End Developer</p>
+                                            <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+                                            <a href="https://github.com/ragaramadhan" target="_blank"><button class="btn btn-about mt-3">Github</button></a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a href="https://github.com/ragaramadhan" target="_blank"><button class="btn btn-about mt-3">Github</button></a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="card p-3 mx-2">
-                              <img src="../img/meetus/kenny.JPG" alt="Kenny">
-                              <div class="card-body text-center">
-                                <h5 class="card-title">Kenny</h5>
-                                <p class="card-text">Team Leader</p>
-                                <div class="stars">
-                                  &#9733; &#9733; &#9733; &#9733; &#9733;
+                                <div class="col-md-4">
+                                    <div class="card p-3 mx-2">
+                                        <img src="../img/meetus/kenny.JPG" alt="Kenny" />
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Kenny</h5>
+                                            <p class="card-text">Team Leader</p>
+                                            <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+                                            <a href="https://github.com/kennysunjaya" target="_blank"><button class="btn btn-about mt-3">Github</button></a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a href="https://github.com/kennysunjaya" target="_blank"><button class="btn btn-about mt-3">Github</button></a>
-                              </div>
                             </div>
-                          </div>
                         </div>
-                      </div>
-                
-                      <!-- Slide 2 -->
-                      <div class="carousel-item">
-                        <div class="row justify-content-center">
-                          <div class="col-md-4">
-                            <div class="card p-3 mx-2">
-                              <img src="../img/meetus/firman.JPG" alt="Firman">
-                              <div class="card-body text-center">
-                                <h5 class="card-title">Firman</h5>
-                                <p class="card-text">Resource</p>
-                                <div class="stars">
-                                  &#9733; &#9733; &#9733; &#9733; &#9733;
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4">
+                                    <div class="card p-3 mx-2">
+                                        <img src="../img/meetus/firman.JPG" alt="Firman" />
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Firman</h5>
+                                            <p class="card-text">Resource</p>
+                                            <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+                                            <a href="https://github.com/FirmanNurz" target="_blank"><button class="btn btn-about mt-3">Github</button></a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a href="https://github.com/FirmanNurz" target="_blank"><button class="btn btn-about mt-3">Github</button></a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="card p-3 mx-2">
-                              <img src="../img/meetus/kelvin.JPG" alt="Kelvin">
-                              <div class="card-body text-center">
-                                <h5 class="card-title">Kelvin</h5>
-                                <p class="card-text">Project Manager</p>
-                                <div class="stars">
-                                  &#9733; &#9733; &#9733; &#9733; &#9733;
+                                <div class="col-md-4">
+                                    <div class="card p-3 mx-2">
+                                        <img src="../img/meetus/kelvin.JPG" alt="Kelvin" />
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Kelvin</h5>
+                                            <p class="card-text">Project Manager</p>
+                                            <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+                                            <a href="https://github.com/kelvintryanto" target="_blank"><button class="btn btn-about mt-3">Github</button></a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a href="https://github.com/kelvintryanto" target="_blank"><button class="btn btn-about mt-3">Github</button></a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="card p-3 mx-2">
-                              <img src="../img/meetus/nouval.JPG" alt="Nouval">
-                              <div class="card-body text-center">
-                                <h5 class="card-title">Nouval</h5>
-                                <p class="card-text">Front End Developer</p>
-                                <div class="stars">
-                                  &#9733; &#9733; &#9733; &#9733; &#9733;
+                                <div class="col-md-4">
+                                    <div class="card p-3 mx-2">
+                                        <img src="../img/meetus/nouval.JPG" alt="Nouval" />
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Nouval</h5>
+                                            <p class="card-text">Front End Developer</p>
+                                            <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+                                            <a href="https://github.com/nazmisani" target="_blank"><button class="btn btn-about mt-3">Github</button></a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a href="https://github.com/nazmisani" target="_blank"><button class="btn btn-about mt-3">Github</button></a>
-                              </div>
                             </div>
-                          </div>
                         </div>
-                      </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
                     </button>
-                  </div>
+                </div>
                 <!-- akhir dari carousel -->
+
+                <!-- contribute to -->
+                <h1 style="text-align: center; margin-top: 100px; margin-bottom: 40px">Big Thanks to Our <span style="color: #ff9800">Phase0</span> Buddy</h1>
+                <div class="d-flex justify-content-around">
+                    <!-- Ko Jo -->
+                    <div class="card mb-3 col-5">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <img src="/hackaton phase 0/img/meetus/kojo.png" class="img-fluid rounded-start cover" alt="Josep Immanuel" />
+                            </div>
+                            <div class="col-md-8 d-flex align-items-center text-center">
+                                <div class="card-body">
+                                    <h5 class="card-title">Nice, passed. Good Job!</h5>
+                                    <p class="card-text">Josep Immanuel</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ko Ardi -->
+                    <div class="card mb-3 col-5">
+                        <div class="row">
+                            <div class="col-md-8 d-flex align-items-center text-center">
+                                <div class="card-body">
+                                    <h5 class="card-title">Oke sip</h5>
+                                    <p class="card-text text-right">Firdaus Ardi</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <img src="/hackaton phase 0/img/meetus/ardi.png" class="img-fluid rounded-start" alt="Firdaus Ardi" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- akhir dari contribute to -->
             </div>
         </div>
         <!-- content section end -->
