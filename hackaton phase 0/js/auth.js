@@ -153,26 +153,31 @@ let hactiventory = [
 // create user
 /** Function Register */
 function register() {
-    let userInfo = {
-        userProfilePicture: "default.png",
-        nama: document.getElementById("nama").value,
-        email: document.getElementById("email").value,
-        password: document.getElementById("newPassword").value,
-        category: [],
-        order: {}
-    };
-    let repeatPassword = document.getElementById("repeatNewPassword").value;
-    // ngecek email duplikat dan password repeat
-    if (repeatPassword === userInfo["password"] && noEmailDuplicate(userInfo)) {
-        let hackTinventory = getHackTinventory();
-        hackTinventory.push(userInfo);
-        localStorage.setItem("hackTinventory", JSON.stringify(hackTinventory));
-        console.log("Registration successful");
-    } else if (repeatPassword !== userInfo["password"]) {
-        console.log("Password diulang dengan salah");
-    } else if (noEmailDuplicate(userInfo) == false) {
-        console.log("Email sudah dipakai");
-    }
+  let userInfo = {
+    userProfilePicture: "default.png",
+    nama: document.getElementById("fullname").value,
+    email: document.getElementById("email").value,
+    password: document.getElementById("password").value,
+    category: [],
+    order: {},
+  };
+  let repeatPassword = document.getElementById("repeatPassword").value;
+
+  if (repeatPassword !== userInfo["password"]) {
+    alert("Passwords do not match!");
+    return;
+  }
+
+  if (noEmailDuplicate(userInfo)) {
+    let hackTinventory = getHackTinventory();
+    hackTinventory.push(userInfo);
+    localStorage.setItem("hackTinventory", JSON.stringify(hackTinventory));
+    alert("Registration successful");
+    window.location.href =
+      "file:///C:/Users/Kenny/Documents/Hacktiventory/hackaton%20phase%200/index.html";
+  } else {
+    alert("Email is already in use!");
+  }
 }
 
 function noEmailDuplicate(userInfo) {
