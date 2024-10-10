@@ -125,6 +125,12 @@ button {
   box-shadow: 0 0 20 px #ffcf96;
 } */
 
+.wrapper button:hover {
+    background: #ffcf96;
+    color: #000;
+    box-shadow: 0 0 20 px #ffcf96;
+}
+
 .register-link {
     font-size: 0.9em;
     text-align: center;
