@@ -491,7 +491,7 @@ function loadNavbar() {
     </button>
     <ul class="dropdown-menu">
         <li><a class="dropdown-item my-1" href="./profile.html">Profile</a></li>
-        <li><a class="dropdown-item my-1" href="./auth/login.html">Log out</a></li>
+        <li><a class="dropdown-item my-1" href="../index.html">Log out</a></li>
     </ul>
 </div>
 </div>

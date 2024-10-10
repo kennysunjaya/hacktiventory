@@ -361,19 +361,21 @@ initializeLocalStorage();
 
 // login (read user)
 function login() {
-    // console.log(`hehe`);
+    // Ambil data dari local storage
+    let hackTinventory = getHackTinventory();
 
-    for (let i = 0; i < hactiventory.length; i++) {
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        // console.log(email , hactiventory[i]["email"])
-        if (email == hactiventory[i]["email"] && password == hactiventory[i]["password"]) {
-            // console.log(hactiventory[i]);
-            window.location.href = "../home.html";
-            break;
-        } else if (email !== hactiventory[i]["email"] && password !== hactiventory[i]["password"]) {
-            console.log(`login yang anda masukan salah`);
-            break;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // Loop melalui setiap user di local storage
+    for (let i = 0; i < hackTinventory.length; i++) {
+        if (email == hackTinventory[i]["email"] && password == hackTinventory[i]["password"]) {
+            console.log("Login successful");
+            // Redirect ke halaman home setelah login sukses
+            window.location.href = "view/about.html";
+            return; // Menghentikan fungsi jika login berhasil
         }
     }
+    // Jika tidak ada kecocokan
+    console.log("Email atau password salah");
 }
