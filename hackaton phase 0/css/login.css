@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 /* body {
@@ -12,55 +12,69 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #3e8bff;
+  background: #fff;
 } */
-
+body {
+  background-image: url(../img/userPhoto/loginBack.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    height: 550px;
-    background: transparent;
-    border: 5px solid #333;
-    border-radius: 10px;
-    transition: 0.5s;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 550px;
+  background: transparent;
+  border: 5px solid #333;
+  border-radius: 10px;
+  transition: 0.5s;
+  background-image: url(../img/userPhoto/loginCard.png);
+  background-size: cover;
 }
 
+/* .wrapper:hover {
+  border: 5px solid #ffcf96;
+  box-shadow: 0 0 20px #ffcf96, inset 0 0 20px #ffcf96;
+} */
+
 .wrapper:hover {
-    border: 5px solid #ffcf96;
-    box-shadow: 0 0 20px #ffcf96, inset 0 0 20px #ffcf96;
+  border: 5px solid #ffcf96;
+  box-shadow: 0 0 20px #ffcf96, inset 0 0 20px #ffcf96;
 }
 
 h2 {
-    font-size: 2em;
-    text-align: center;
-    color: #fff;
-    transition: 0.5s;
+  font-size: 2em;
+  text-align: center;
+  color: #fff;
+  /* color: #ffa126; */
+  transition: 0.5s;
 }
 
 .wrapper:hover h2 {
-    color: #ffcf96;
+  /* color: #ffcf96; */
+  color: #000000;
 }
 
 .input-box {
-    position: relative;
-    width: 370px;
-    margin: 30px 0;
+  position: relative;
+  width: 370px;
+  margin: 30px 0;
 }
 
 .input-box input {
-    width: 100;
-    height: 50px;
-    background: transparent;
-    border: 2px solid #333;
-    outline: none;
-    border-radius: 5px;
-    font-size: 1em;
-    color: #fff;
-    padding: 0 10px 0 35px;
-    transition: 0.5s;
+  width: 100;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #333;
+  outline: none;
+  border-radius: 5px;
+  font-size: 1em;
+  /* color: #fff; */
+  color: #000000;
+  padding: 0 10px 0 35px;
+  transition: 0.5s;
 }
 
 /* .wrapper:hover .input-box input {
@@ -69,25 +83,28 @@ h2 {
 } */
 
 .wrapper input:focus {
-    border: 2px solid #ffcf96;
-    box-shadow: 0 0 10px #ffcf96, inset 0 0 10px #ffcf96;
+  border: 2px solid #ffcf96;
+  box-shadow: 0 0 10px #ffcf96, inset 0 0 10px #ffcf96;
 }
 
 .input-box input::placeholder {
-    color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .input-box .icon {
-    position: absolute;
-    left: 10px;
-    color: #fff;
-    font-size: 1.2em;
-    line-height: 55px;
-    transition: 0.5s;
+  position: absolute;
+  left: 10px;
+  color: #fff;
+  font-size: 1.2em;
+  line-height: 55px;
+  transition: 0.5s;
 }
 
+/* .wrapper:hover .input-box .icon {
+  color: #ffcf96;
+} */
 .wrapper:hover .input-box .icon {
-    color: #ffcf96;
+  color: #000000;
 }
 
 /* .forgot-pass {
@@ -105,18 +122,24 @@ h2 {
 } */
 
 button {
-    position: relative;
-    width: 100%;
-    height: 45px;
-    background: #333;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    color: #fff;
-    font-weight: 500;
-    transition: 0.5s;
+  position: relative;
+  width: 100%;
+  height: 45px;
+  background: #333;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+button:hover{
+  border: 5px solid #ffcf96;
+  box-shadow: 0 0 20px #ffcf96, inset 0 0 20px #ffcf96;
+  background:  #ffcf96 ;
 }
 
 /* .wrapper:hover button {
@@ -125,27 +148,21 @@ button {
   box-shadow: 0 0 20 px #ffcf96;
 } */
 
-.wrapper button:hover {
-    background: #ffcf96;
-    color: #000;
-    box-shadow: 0 0 20 px #ffcf96;
-}
-
 .register-link {
-    font-size: 0.9em;
-    text-align: center;
-    margin: 25px 0;
+  font-size: 0.9em;
+  text-align: center;
+  margin: 25px 0;
 }
 
 .register-link p {
-    color: #fff;
+  color: #fff;
 }
 
 .register-link p a {
-    color: #333;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.5s;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.5s;
 }
 
 /* .wrapper:hover .register-link p a {
@@ -153,5 +170,5 @@ button {
 } */
 
 .register-link p a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
