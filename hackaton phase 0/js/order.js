@@ -147,7 +147,21 @@ let hactiventory = [
         ]
     },
   ]
+
+//   console.log(sessionStorage.getItem("category"))
+//   let storedUserData = sessionStorage.getItem("category");
+//   console.log(storedUserData);
   
+//   if (storedUserData) {
+//     // Mengubah data dari string kembali ke bentuk object
+//     let userData = JSON.parse(storedUserData);
+
+//     // Mengakses detail user atau item yang disimpan
+//     console.log(userData); // Menampilkan seluruh object userData
+//     console.log(userData.user); // Menampilkan data user
+//     console.log(userData.category); // Menampilkan kategori
+//     console.log(userData.order); // Menampilkan order
+// }
   // create Order
 //   let hackTinventory = getHackTinventory();
   function addOrder(item , itemName , jumlahItem) {
