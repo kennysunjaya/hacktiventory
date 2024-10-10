@@ -136,6 +136,12 @@ button {
   transition: 0.5s;
 }
 
+button:hover{
+  border: 5px solid #ffcf96;
+  box-shadow: 0 0 20px #ffcf96, inset 0 0 20px #ffcf96;
+  background:  #ffcf96 ;
+}
+
 /* .wrapper:hover button {
   background: #ffcf96;
   color: #000;
