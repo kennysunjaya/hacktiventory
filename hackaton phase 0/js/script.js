@@ -534,12 +534,12 @@ window.addEventListener("load", adjustContentHeight);
 function logout() {
     let result = [];
     // 1. satukan session storage
-    let user = groupingUser();
+    // let user = groupingUser();
 
     // menghapus session storage
-    // sessionStorage.clear();
+    sessionStorage.clear();
 
-    // window.location.href = "http://127.0.0.1:5500/hackaton%20phase%200/index.html";
+    window.location.href = "http://127.0.0.1:5500/hackaton%20phase%200/index.html";
 }
 
 function groupingUser() {
