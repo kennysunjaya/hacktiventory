@@ -507,7 +507,7 @@ function loadNavbar() {
     const welcome = document.getElementById("welcome");
     let user = JSON.parse(sessionStorage.getItem("user"));
     loginButton.innerHTML = user.nama;
-    welcome.innerHTML = `Welcome, ` + user.nama + "!";
+    if (welcome) welcome.innerHTML = `Welcome, ` + user.nama + "!";
 }
 
 function loadFooter() {
@@ -532,6 +532,7 @@ window.addEventListener("resize", adjustContentHeight);
 window.addEventListener("load", adjustContentHeight);
 
 function logout() {
+    let result = [];
     // 1. satukan session storage
     let user = groupingUser();
 
@@ -545,8 +546,13 @@ function groupingUser() {
     let result = {};
     const user = JSON.parse(sessionStorage.getItem("user"));
     // console.log(user.email);
+
     // 2. delete object yang ada di localstorage yang sama dengan user email
-    deleteUserLocalStorage(user.email);
+    let deletedUserLocalStorage = deleteUserLocalStorage(user.email);
+    // sekarang localstorage sudah hygienis dari user yang sedang login
+    console.log(deletedUserLocalStorage);
+
+    // localStorage.setItem("hackTinventory", JSON.stringify(deletedUserLocalStorage));
 
     const category = JSON.parse(sessionStorage.getItem("category"));
     const item = JSON.parse(sessionStorage.getItem("item"));
@@ -555,19 +561,19 @@ function groupingUser() {
     return result;
 }
 
+// mengambil data user yang sudah bersih dari kepunyaan john doe
 function deleteUserLocalStorage(userEmail) {
     // console.log(userEmail);
     let user = JSON.parse(localStorage.getItem("hackTinventory"));
-    console.log(user);
-
-    for (let key of user) {
-        let perUser = key;
-        for (let key in perUser) {
-            // ambil email yang ada di local storage
-            let email = perUser.email;
-            console.log(email, userEmail);
-            if (email == userEmail) {
-            }
+    let result = [];
+    for (let i = 0; i < user.length; i++) {
+        let perUser = user[i];
+        // ambil email yang ada di local storage
+        let email = perUser.email;
+        if (email !== userEmail) {
+            result.push(perUser);
         }
     }
+    localStorage.clear();
+    return result;
 }
