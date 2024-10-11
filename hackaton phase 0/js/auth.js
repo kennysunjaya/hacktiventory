@@ -128,7 +128,7 @@ function login() {
       sessionStorage.setItem("item", JSON.stringify(userData.item));
 
       // Mengeluarkan object userData
-      console.log(userData);
+      // console.log(userData);
 
       // nanti nyalakan setelah console.log keluar
       window.location.href = "view/about.html";
@@ -136,5 +136,5 @@ function login() {
     }
   }
   // Jika tidak ada kecocokan
-  console.log("Email atau password salah");
+  // console.log("Email atau password salah");
 }
