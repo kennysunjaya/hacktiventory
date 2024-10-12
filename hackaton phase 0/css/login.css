@@ -67,7 +67,8 @@ h2 {
 .input-box {
     position: relative;
     width: 370px;
-    margin: 30px 0;
+    /* done mengganti margin 30px menjadi 20px */
+    margin: 20px 0;
 }
 
 .input-box input {
@@ -180,4 +181,3 @@ button:hover {
 .register-link p a:hover {
     text-decoration: underline;
 }
-

@@ -68,53 +68,8 @@ function adjustContentHeight() {
     document.querySelector(".container").style.minHeight = contentHeight + "px";
 }
 
-window.addEventListener("resize", adjustContentHeight);
-window.addEventListener("load", adjustContentHeight);
-
-// todo nanti pindahkan ke auth.js
-function logout() {
-    let result = [];
-    // todo satukan session storage
-    // let user = groupingUser();
-
-    // done menghapus session storage
-    sessionStorage.clear();
-
-    window.location.href = "http://127.0.0.1:5500/hackaton%20phase%200/index.html";
-}
-
-function groupingUser() {
-    let result = {};
-    const user = JSON.parse(sessionStorage.getItem("user"));
-    // console.log(user.email);
-
-    // 2. delete object yang ada di localstorage yang sama dengan user email
-    let deletedUserLocalStorage = deleteUserLocalStorage(user.email);
-    // sekarang localstorage sudah hygienis dari user yang sedang login
-    console.log(deletedUserLocalStorage);
-
-    // localStorage.setItem("hackTinventory", JSON.stringify(deletedUserLocalStorage));
-
-    const category = JSON.parse(sessionStorage.getItem("category"));
-    const item = JSON.parse(sessionStorage.getItem("item"));
-    const order = JSON.parse(sessionStorage.getItem("order"));
-
-    return result;
-}
-
-// todo mengambil data user yang sudah bersih dari kepunyaan john doe
-function deleteUserLocalStorage(userEmail) {
-    // console.log(userEmail);
-    let user = JSON.parse(localStorage.getItem("hacktinventory"));
-    let result = [];
-    for (let i = 0; i < user.length; i++) {
-        let perUser = user[i];
-        // ambil email yang ada di local storage
-        let email = perUser.email;
-        if (email !== userEmail) {
-            result.push(perUser);
-        }
-    }
-    localStorage.clear();
-    return result;
+// done periksa apakah document bukan index.html atau register.html
+if (!window.location.href.indexOf("index.html") > -1 && !window.location.href.indexOf("register.html") > -1) {
+    window.addEventListener("resize", adjustContentHeight);
+    window.addEventListener("load", adjustContentHeight);
 }
