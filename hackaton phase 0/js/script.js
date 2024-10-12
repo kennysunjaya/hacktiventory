@@ -1,14 +1,3 @@
-// DONE COPAS to auth by Kelvin
-function noEmailDuplicate(userInfo) {
-    let hackTinventory = getHackTinventory();
-    for (let i = 0; i < hackTinventory.length; i++) {
-        if (hackTinventory[i]["email"] === userInfo["email"]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 function loadNavbar() {
     const navbar = `
         <nav class="navbar navbar-expand-md bg-light sticky-top p-0 m-0">
@@ -82,9 +71,10 @@ function adjustContentHeight() {
 window.addEventListener("resize", adjustContentHeight);
 window.addEventListener("load", adjustContentHeight);
 
+// todo nanti pindahkan ke auth.js
 function logout() {
     let result = [];
-    // 1. satukan session storage
+    // todo satukan session storage
     // let user = groupingUser();
 
     // menghapus session storage

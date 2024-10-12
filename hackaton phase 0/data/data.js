@@ -1,4 +1,4 @@
-let hactiventory = [
+let hacktiventory = [
     // object yang pertama
     {
         userProfilePicture: "default.png",

@@ -1,8 +1,50 @@
 // authorization
-// create user
+
+// done initializeLocalStorage memerlukan data.js, panggil data.js di register dan index.html
+// selesai mengambil ke dan dari local storage
+initializeLocalStorage();
+// function untuk menyimpan hackTiventory ke local storage
+function initializeLocalStorage() {
+    // mengambil hacktinventory dan memasukkannya ke variabel existing inventory
+    let existingInventory = localStorage.getItem("hacktinventory");
+    // kalau di localstorage tidak ada object hacktinventory
+    if (!existingInventory) {
+        // kalau tidak ada object, maka setItemnya di dalam local storage
+        console.log(hacktiventory);
+        console.log("masuk ke sini");
+        localStorage.setItem("hacktinventory", JSON.stringify(hacktiventory));
+    } else {
+        // kalau ada objectnya di local storage
+        let inventoryArray = JSON.parse(existingInventory);
+        // looping hactiventory yang awal
+        for (let user of hactiventory) {
+            if (!inventoryArray.some((existingUser) => existingUser.email === user.email)) {
+                inventoryArray.push(user);
+            }
+        }
+        localStorage.setItem("hacktinventory", JSON.stringify(inventoryArray));
+    }
+}
 
 // done lakukan pemanggilan login pada auth() untuk melihat apakah loginButton ditekan
-login();
+// login akan berjalan jika submit pada loginform ditekan
+// done function login akan dijalankan jika memang ada index.html pada link address
+if (window.location.href.indexOf("index.html") > -1) {
+    // fixme setfocus ketika masuk ke dalam login
+    document.getElementById("email").focus;
+    console.log("kamu berada di halaman login, siap jalankan login");
+    login();
+}
+
+// done function register akan dijalankan jika memang ada register.html pada link address
+if (window.location.href.indexOf("register.html") > -1) {
+    // fixme setfocus ketika masuk ke dalam register
+    document.getElementById("fullname").focus;
+    register();
+}
+
+// todo cek apakah pada halaman tersebut sudah cek in
+function isCheckIn() {}
 
 /** Function Register */
 function register() {
@@ -22,61 +64,36 @@ function register() {
     }
 
     if (noEmailDuplicate(userInfo)) {
-        let hackTinventory = getHackTinventory();
-        hackTinventory.push(userInfo);
-        localStorage.setItem("hackTinventory", JSON.stringify(hackTinventory));
+        let hacktinventory = getHackTinventory();
+        hacktinventory.push(userInfo);
+        localStorage.setItem("hacktinventory", JSON.stringify(hacktinventory));
         console.log("Registration successful");
         window.location.href = "http://127.0.0.1:5500/hackaton%20phase%200/index.html";
     } else {
-        alert("Email is already in use!");
+        // fixme gunakan notifikasi pada register
+        console.log("Email is already in use!");
     }
 }
 
 function noEmailDuplicate(userInfo) {
-    let hackTinventory = getHackTinventory();
-    for (let i = 0; i < hackTinventory.length; i++) {
-        if (hackTinventory[i]["email"] === userInfo["email"]) {
+    let hacktinventory = getHackTinventory();
+    for (let i = 0; i < hacktinventory.length; i++) {
+        if (hacktinventory[i]["email"] === userInfo["email"]) {
             return false;
         }
     }
     return true;
 }
 
-// function untuk menyimpan hackTiventory ke local storage
-function initializeLocalStorage() {
-    // mengambil hackTinventory dan memasukkannya ke variabel existing inventory
-    let existingInventory = localStorage.getItem("hackTinventory");
-    // kalau di localstorage tidak ada object hackTinventory
-    if (!existingInventory) {
-        // kalau tidak ada object, maka setItemnya di dalam local storage
-        localStorage.setItem("hackTinventory", JSON.stringify(hactiventory));
-    } else {
-        // kalau ada objectnya di local storage
-        let inventoryArray = JSON.parse(existingInventory);
-        // looping hactiventory yang awal
-        for (let user of hactiventory) {
-            if (!inventoryArray.some((existingUser) => existingUser.email === user.email)) {
-                inventoryArray.push(user);
-            }
-        }
-        localStorage.setItem("hackTinventory", JSON.stringify(inventoryArray));
-    }
-}
-
 // function untuk mengambil hactIventory dari local storage
 function getHackTinventory() {
-    return JSON.parse(localStorage.getItem("hackTinventory"));
+    return JSON.parse(localStorage.getItem("hacktinventory"));
 }
-
-initializeLocalStorage();
-// selesai mengambil ke dan dari local storage
 
 /* ====================================================================================================== */
 
 // login (read user)
 function login() {
-    // done setfocus ketika masuk ke dalam login
-    document.getElementById("email").focus();
     document.getElementById("loginForm").addEventListener("submit", (event) => {
         event.preventDefault();
 
@@ -108,7 +125,9 @@ function login() {
             document.getElementById("email").value = "";
             document.getElementById("password").value = "";
 
-            showAlertwithAnimation();
+            // done mengambil alertbox di index.html
+            const alertBox = document.getElementById("loginValidation");
+            showAlertwithAnimation(alertBox);
         }
     });
 
@@ -116,22 +135,14 @@ function login() {
     // console.log("Email atau password salah");
 }
 
-function showAlertwithAnimation() {
-    // done mengambil alertbox di index.html
-    const alertBox = document.getElementById("loginValidation");
-
+function showAlertwithAnimation(alertBox) {
     alertMasuk(alertBox);
     alertKeluar(alertBox);
-}
-
-// done alert masuk
-function alertMasuk(alertBox) {
+    // done alert masuk
     alertBox.classList.remove("d-none"); // Show the alert by removing d-none
     alertBox.classList.add("show"); // Bootstrap class to display the alert
-}
 
-// done alert keluar
-function alertKeluar(alertBox) {
+    // done alert keluar
     setTimeout(function () {
         alertBox.classList.remove("show"); // Bootstrap class to display the alert
     }, 3000); // alert akan memulai fade show dalam waktu 3000 milidetik
