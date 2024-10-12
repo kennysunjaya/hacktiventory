@@ -1,72 +1,3 @@
-//authorization
-function Login() {
-    // console.log(`hehe`);
-
-    for (let i = 0; i < hactiventory.length; i++) {
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        // console.log(email , hactiventory[i]["email"])
-        if (email == hactiventory[i]["email"] && password == hactiventory[i]["password"]) {
-            // console.log(hactiventory[i]);
-            window.location.href = "http://127.0.0.1:5500/hackaton%20phase%200/view/home.html";
-            break;
-        } else if (email !== hactiventory[i]["email"] && password !== hactiventory[i]["password"]) {
-            console.log(`login yang anda masukan salah`);
-            break;
-        }
-    }
-}
-
-// delete aray
-const array = [
-    { id: 1, name: "John" },
-    { id: 2, name: "Doe" },
-    { id: 3, name: "Jane" }
-];
-
-//nama yang ingin dihapus
-const nameToDelete = `John`;
-
-for (let i = 0; i < array.length; i++) {
-    if (array[i].name === nameToDelete) {
-        for (let j = i; j < array.length - 1; j++) {
-            array[j] = array[j + 1];
-        }
-        //hapus elemen terakhir(karena sudah digeser kedepan)
-        array.length--;
-        break; //keluar dari loop setelah objek ditemukan
-    }
-}
-
-// function untuk menyimpan hackTiventory ke local storage
-function initializeLocalStorage() {
-    // mengambil hackTinventory dan memasukkannya ke variabel existing inventory
-    let existingInventory = localStorage.getItem("hackTinventory");
-    // kalau di localstorage tidak ada object hackTinventory
-    if (!existingInventory) {
-        // kalau tidak ada object, maka setItemnya di dalam local storage
-        localStorage.setItem("hackTinventory", JSON.stringify(hactiventory));
-    } else {
-        // kalau ada objectnya di local storage
-        let inventoryArray = JSON.parse(existingInventory);
-        // looping hactiventory yang awal
-        for (let user of hactiventory) {
-            if (!inventoryArray.some((existingUser) => existingUser.email === user.email)) {
-                inventoryArray.push(user);
-            }
-        }
-        localStorage.setItem("hackTinventory", JSON.stringify(inventoryArray));
-    }
-}
-
-// function untuk mengambil hactIventory dari local storage
-function getHackTinventory() {
-    return JSON.parse(localStorage.getItem("hackTinventory")) || [];
-}
-
-initializeLocalStorage();
-// selesai mengambil ke dan dari local storage
-
 // DONE COPAS to auth by Kelvin
 function noEmailDuplicate(userInfo) {
     let hackTinventory = getHackTinventory();
@@ -82,12 +13,12 @@ function loadNavbar() {
     const navbar = `
         <nav class="navbar navbar-expand-md bg-light sticky-top p-0 m-0">
         <div class="container-fluid navigasi">
-          <a class="navbar-brand" href="../view/profile.html"><img src="../img/userPhoto/HACKTIVENTORY.png" alt="" style="width: 230px; margin-left: 7px;"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="../view/profile.html"><img src="../img/userPhoto/HACKTIVENTORY.png" alt="" style="width: 230px; margin-left: 7px;"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="d-flex flex-row-reverse mx-4">
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        </button>
+        <div class="d-flex flex-row-reverse mx-4">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">    
             <!-- link home -->
             <li class="nav-item mx-2 button1 rounded-pill btn ">
@@ -132,7 +63,7 @@ function loadNavbar() {
 
 function loadFooter() {
     const footer = `
-      <div class="footer p-1" style="width: auto; text-align: center; position:relative; top: 0;">
+    <div class="footer p-1" style="width: auto; text-align: center; position:relative; top: 0;">
         Ultramarine Fox @2024
     </div>`;
     document.getElementById("footer").innerHTML = footer;

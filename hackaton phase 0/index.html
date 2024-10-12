@@ -9,12 +9,14 @@
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         <link rel="icon" type="image/x-icon" href="img/icon/48x48.png" />
     </head>
+    <!-- todo cari ultimarine fox nya ditaruh di bawah dua colom di atas satu column di bawah -->
     <body class="d-flex justify-content-center align-items-center radial-gradient" style="min-height: 100vh; background-color: #fff">
         <img src="../hackaton phase 0/img/userPhoto/HACKTIVENTORY.png" width="700" height="auto" />
         <div class="wrapper">
-            <form action="">
+            <form id="loginForm" action="">
                 <img src="../hackaton phase 0/img/userPhoto/logo.png" width="150" height="150" class="center" />
                 <h2>Login</h2>
+                <!-- todo buat notifikasi error yang muncul jika login gagal, buat fungsi baru yang menampilkan error saat fungsi login gagal -->
                 <div class="input-box mx-4">
                     <span class="icon"><ion-icon name="person"></ion-icon></span>
                     <input class="w-100" type="text" placeholder="Email" id="email" autocomplete="off" required />
@@ -27,7 +29,9 @@
                     <a href="#">Forgot Password?</a>
                 </div> -->
                 <div class="input-box mx-4">
-                    <button class="rounded-2 w-100" type="button" onclick="login()">Login</button>
+                    <!-- fixme terganggu dengan tidak bisa enter setelah mengetik email dan password -->
+                    <!-- todo cari cara untuk pakai tipe submit dan action dengan javacript -->
+                    <button class="rounded-2 w-100" type="submit">Login</button>
                 </div>
                 <div class="register-link">
                     <p>Don't have an account? <a href="view/auth/register.html">Register</a></p>
@@ -37,6 +41,7 @@
         <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="js/ionicons/ionicons.js"></script>
+        <script src="data/data.js"></script>
         <script src="js/auth.js"></script>
     </body>
 </html>
