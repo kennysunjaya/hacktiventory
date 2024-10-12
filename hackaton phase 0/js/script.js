@@ -77,7 +77,7 @@ function logout() {
     // todo satukan session storage
     // let user = groupingUser();
 
-    // menghapus session storage
+    // done menghapus session storage
     sessionStorage.clear();
 
     window.location.href = "http://127.0.0.1:5500/hackaton%20phase%200/index.html";
@@ -102,10 +102,10 @@ function groupingUser() {
     return result;
 }
 
-// mengambil data user yang sudah bersih dari kepunyaan john doe
+// todo mengambil data user yang sudah bersih dari kepunyaan john doe
 function deleteUserLocalStorage(userEmail) {
     // console.log(userEmail);
-    let user = JSON.parse(localStorage.getItem("hackTinventory"));
+    let user = JSON.parse(localStorage.getItem("hacktinventory"));
     let result = [];
     for (let i = 0; i < user.length; i++) {
         let perUser = user[i];

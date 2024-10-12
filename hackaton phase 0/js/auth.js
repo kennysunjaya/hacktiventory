@@ -5,12 +5,12 @@
 initializeLocalStorage();
 // function untuk menyimpan hackTiventory ke local storage
 function initializeLocalStorage() {
-    // mengambil hacktinventory dan memasukkannya ke variabel existing inventory
-    let existingInventory = localStorage.getItem("hacktinventory");
-    // kalau di localstorage tidak ada object hacktinventory
+    // mengambil hacktiventory dan memasukkannya ke variabel existing inventory
+    let existingInventory = localStorage.getItem("hacktiventory");
+    // kalau di localstorage tidak ada object hacktiventory
     if (!existingInventory) {
         // kalau tidak ada object, maka setItemnya di dalam local storage
-        localStorage.setItem("hacktinventory", JSON.stringify(hacktiventory));
+        localStorage.setItem("hacktiventory", JSON.stringify(hacktiventory));
     } else {
         // kalau ada objectnya di local storage
         let inventoryArray = JSON.parse(existingInventory);
@@ -20,7 +20,7 @@ function initializeLocalStorage() {
                 inventoryArray.push(user);
             }
         }
-        localStorage.setItem("hacktinventory", JSON.stringify(inventoryArray));
+        localStorage.setItem("hacktiventory", JSON.stringify(inventoryArray));
     }
 }
 
@@ -41,7 +41,9 @@ if (window.location.href.indexOf("register.html") > -1) {
 }
 
 // todo cek apakah pada halaman tersebut sudah cek in
-function isCheckIn() {}
+function isCheckIn() {
+    console.log(sessionStorage.getItem("user"));
+}
 
 /** Function Register */
 function register() {
@@ -61,9 +63,9 @@ function register() {
     }
 
     if (noEmailDuplicate(userInfo)) {
-        let hacktinventory = getHackTinventory();
-        hacktinventory.push(userInfo);
-        localStorage.setItem("hacktinventory", JSON.stringify(hacktinventory));
+        let hacktiventory = getHackTinventory();
+        hacktiventory.push(userInfo);
+        localStorage.setItem("hacktiventory", JSON.stringify(hacktiventory));
         console.log("Registration successful");
         window.location.href = "http://127.0.0.1:5500/hackaton%20phase%200/index.html";
     } else {
@@ -73,18 +75,18 @@ function register() {
 }
 
 function noEmailDuplicate(userInfo) {
-    let hacktinventory = getHackTinventory();
-    for (let i = 0; i < hacktinventory.length; i++) {
-        if (hacktinventory[i]["email"] === userInfo["email"]) {
+    let hacktiventory = getHackTinventory();
+    for (let i = 0; i < hacktiventory.length; i++) {
+        if (hacktiventory[i]["email"] === userInfo["email"]) {
             return false;
         }
     }
     return true;
 }
 
-// function untuk mengambil hactIventory dari local storage
+// function untuk mengambil hacktiventory dari local storage
 function getHackTinventory() {
-    return JSON.parse(localStorage.getItem("hacktinventory"));
+    return JSON.parse(localStorage.getItem("hacktiventory"));
 }
 
 /* ====================================================================================================== */
