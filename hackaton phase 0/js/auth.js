@@ -10,14 +10,12 @@ function initializeLocalStorage() {
     // kalau di localstorage tidak ada object hacktinventory
     if (!existingInventory) {
         // kalau tidak ada object, maka setItemnya di dalam local storage
-        console.log(hacktiventory);
-        console.log("masuk ke sini");
         localStorage.setItem("hacktinventory", JSON.stringify(hacktiventory));
     } else {
         // kalau ada objectnya di local storage
         let inventoryArray = JSON.parse(existingInventory);
         // looping hactiventory yang awal
-        for (let user of hactiventory) {
+        for (let user of hacktiventory) {
             if (!inventoryArray.some((existingUser) => existingUser.email === user.email)) {
                 inventoryArray.push(user);
             }
@@ -30,16 +28,15 @@ function initializeLocalStorage() {
 // login akan berjalan jika submit pada loginform ditekan
 // done function login akan dijalankan jika memang ada index.html pada link address
 if (window.location.href.indexOf("index.html") > -1) {
-    // fixme setfocus ketika masuk ke dalam login
-    document.getElementById("email").focus;
-    console.log("kamu berada di halaman login, siap jalankan login");
+    // done setfocus ketika masuk ke dalam login
+    document.getElementById("email").focus();
     login();
 }
 
 // done function register akan dijalankan jika memang ada register.html pada link address
 if (window.location.href.indexOf("register.html") > -1) {
-    // fixme setfocus ketika masuk ke dalam register
-    document.getElementById("fullname").focus;
+    // done setfocus ketika masuk ke dalam register
+    document.getElementById("fullname").focus();
     register();
 }
 
@@ -125,6 +122,9 @@ function login() {
             document.getElementById("email").value = "";
             document.getElementById("password").value = "";
 
+            // done setfocus lagi ke login setelah mengosongkan email dan password
+            document.getElementById("email").focus();
+
             // done mengambil alertbox di index.html
             const alertBox = document.getElementById("loginValidation");
             showAlertwithAnimation(alertBox);
@@ -136,8 +136,8 @@ function login() {
 }
 
 function showAlertwithAnimation(alertBox) {
-    alertMasuk(alertBox);
-    alertKeluar(alertBox);
+    // alertMasuk(alertBox);
+    // alertKeluar(alertBox);
     // done alert masuk
     alertBox.classList.remove("d-none"); // Show the alert by removing d-none
     alertBox.classList.add("show"); // Bootstrap class to display the alert
@@ -196,7 +196,7 @@ function getUserData(userLogin, hacktiventory) {
     }
 }
 
-function setSessionStorage() {
+function setSessionStorage(sessionUserData) {
     sessionStorage.setItem("user", JSON.stringify(sessionUserData.user));
     sessionStorage.setItem("category", JSON.stringify(sessionUserData.category));
     sessionStorage.setItem("order", JSON.stringify(sessionUserData.order));
