@@ -16,7 +16,14 @@
             <form id="loginForm" action="">
                 <img src="../hackaton phase 0/img/userPhoto/logo.png" width="150" height="150" class="center" />
                 <h2>Login</h2>
-                <!-- todo buat notifikasi error yang muncul jika login gagal, buat fungsi baru yang menampilkan error saat fungsi login gagal -->
+                <!-- done buat notifikasi error yang muncul jika login gagal, buat fungsi baru yang menampilkan error saat fungsi login gagal -->
+                <!-- done jika gagal munculkan notifikasi dengan menghilangkan d-none pada class alert -->
+                <!-- done mencari notifikasi pada code igniter 3 web programming unpas, ternyata pakai alert -->
+                <!-- done memperbaiki letak alert-->
+                <!-- done memberikan id pada input box notifikasi alert -->
+                <div class="input-box mx-4 fade d-none" id="loginValidation" style="margin-top: -5px; margin-bottom: -20px">
+                    <div class="alert alert-danger text-center" style="width: 370px" role="alert">Login failed. Please check your username and password and try again.</div>
+                </div>
                 <div class="input-box mx-4">
                     <span class="icon"><ion-icon name="person"></ion-icon></span>
                     <input class="w-100" type="text" placeholder="Email" id="email" autocomplete="off" required />
@@ -29,8 +36,8 @@
                     <a href="#">Forgot Password?</a>
                 </div> -->
                 <div class="input-box mx-4">
-                    <!-- fixme terganggu dengan tidak bisa enter setelah mengetik email dan password -->
-                    <!-- todo cari cara untuk pakai tipe submit dan action dengan javacript -->
+                    <!-- done terganggu dengan tidak bisa enter setelah mengetik email dan password -->
+                    <!-- done cari cara untuk pakai tipe submit dan action dengan javacript -->
                     <button class="rounded-2 w-100" type="submit">Login</button>
                 </div>
                 <div class="register-link">

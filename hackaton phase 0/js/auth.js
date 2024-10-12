@@ -75,6 +75,8 @@ initializeLocalStorage();
 
 // login (read user)
 function login() {
+    // done setfocus ketika masuk ke dalam login
+    document.getElementById("email").focus();
     document.getElementById("loginForm").addEventListener("submit", (event) => {
         event.preventDefault();
 
@@ -89,7 +91,6 @@ function login() {
 
         // Loop melalui setiap user di local storage
         let sessionUserData = getUserData(userLogin, hacktiventory);
-        console.log(sessionUserData);
 
         // Menyimpan userData ke session storage
         if (sessionUserData) {
@@ -100,19 +101,44 @@ function login() {
             // Redirect ke halaman home setelah login sukses
             window.location.href = "view/about.html";
         } else {
-            // todo jika tidak ada sessionUserData, munculkan notifikasi error pada login
+            // done jika tidak ada sessionUserData, munculkan notifikasi error pada login
             // untuk pertamanya tampilkan console.log("Login failed. Please check your username and password and try again.")
             // done cari tampilkan pesan dalam bahasa inggris
             // done jika gagal kosongkan kembali input email dan password
             document.getElementById("email").value = "";
             document.getElementById("password").value = "";
 
-            console.log("Login failed. Please check your username and password and try again.");
+            showAlertwithAnimation();
         }
     });
 
     // Jika tidak ada kecocokan
     // console.log("Email atau password salah");
+}
+
+function showAlertwithAnimation() {
+    // done mengambil alertbox di index.html
+    const alertBox = document.getElementById("loginValidation");
+
+    alertMasuk(alertBox);
+    alertKeluar(alertBox);
+}
+
+// done alert masuk
+function alertMasuk(alertBox) {
+    alertBox.classList.remove("d-none"); // Show the alert by removing d-none
+    alertBox.classList.add("show"); // Bootstrap class to display the alert
+}
+
+// done alert keluar
+function alertKeluar(alertBox) {
+    setTimeout(function () {
+        alertBox.classList.remove("show"); // Bootstrap class to display the alert
+    }, 3000); // alert akan memulai fade show dalam waktu 3000 milidetik
+
+    setTimeout(function () {
+        alertBox.classList.add("d-none");
+    }, 3500); //alert akan menghilang setelah
 }
 
 function getUserData(userLogin, hacktiventory) {
