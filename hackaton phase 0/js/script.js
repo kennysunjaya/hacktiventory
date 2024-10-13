@@ -16,12 +16,17 @@ function loadNavbar() {
             
             <!-- link About -->
             <li class="nav-item mx-2 button1 rounded-pill btn">
-                <a  class="nav-link active " href="./about.html">About</a>
+                <a  class="nav-link active " href="about.html">About</a>
             </li>
             
             <!-- link Our Story -->
             <li class="nav-item mx-2 button1 rounded-pill btn">
-                <a  class="nav-link active " href="./ourstory.html">Our Story</a>
+                <a  class="nav-link active " href="ourstory.html">Our Story</a>
+            </li>
+            
+            <!-- link Docs -->
+            <li class="nav-item mx-2 button1 rounded-pill btn">
+                <a  class="nav-link active " href="docs/index.html">Docs</a>
             </li>
         </ul>
         <!-- drop down profile -->
@@ -32,7 +37,7 @@ function loadNavbar() {
                 Hacktiv8
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item my-1" href="./profile.html">Profile</a></li>
+                <li><a class="dropdown-item my-1" href="profile.html">Profile</a></li>
                 <li><a class="dropdown-item my-1" type="button" onclick="logout()">Log out</a></li>
             </ul>
         </div>
@@ -40,14 +45,21 @@ function loadNavbar() {
         </div>
         </div>
     </nav>`;
+    console.log(navbar);
     document.getElementById("navbar").innerHTML = navbar;
 
     // mengatur tombol loginButton dengan nama user yang ada di storage
     const loginButton = document.getElementById("loginButton");
+
+    // todo jika masuk ke dalam folder view, cek urlnya ada view atau tidak
+    // todo setting img src nya dan setting pengambilan welcomenya beda
+    // todo pasti pengambilan yang ada di navbar beda semua
     const welcome = document.getElementById("welcome");
     let user = JSON.parse(sessionStorage.getItem("user"));
     loginButton.innerHTML = user.nama;
     if (welcome) welcome.innerHTML = `Welcome, ` + user.nama + "!";
+
+    // todo jika masuk ke dalam folder view/docs, cek urlnya ada view/docs atau tidak
 }
 
 function loadFooter() {
@@ -73,3 +85,60 @@ if (!window.location.href.indexOf("index.html") > -1 && !window.location.href.in
     window.addEventListener("resize", adjustContentHeight);
     window.addEventListener("load", adjustContentHeight);
 }
+
+/** =================================================================================================================== */
+/** ============================================function logout======================================================== */
+/** =================================================================================================================== */
+
+// todo pindahkan ke script.js karena hampir semua halaman yang menggunakan logout yang berada di navbar menggunakan script.js
+function logout() {
+    let result = [];
+    // todo satukan session storage
+    // let user = groupingUser();
+
+    // done menghapus session storage
+    sessionStorage.clear();
+
+    // todo jika berada di 
+    window.location.href = "http://127.0.0.1:5500/hackaton%20phase%200/index.html";
+}
+
+function groupingUser() {
+    let result = {};
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    // console.log(user.email);
+
+    // 2. delete object yang ada di localstorage yang sama dengan user email
+    let deletedUserLocalStorage = deleteUserLocalStorage(user.email);
+    // sekarang localstorage sudah hygienis dari user yang sedang login
+    console.log(deletedUserLocalStorage);
+
+    // localStorage.setItem("hackTinventory", JSON.stringify(deletedUserLocalStorage));
+
+    const category = JSON.parse(sessionStorage.getItem("category"));
+    const item = JSON.parse(sessionStorage.getItem("item"));
+    const order = JSON.parse(sessionStorage.getItem("order"));
+
+    return result;
+}
+
+// todo mengambil data user yang sudah bersih dari kepunyaan john doe
+function deleteUserLocalStorage(userEmail) {
+    // console.log(userEmail);
+    let user = JSON.parse(localStorage.getItem("hacktinventory"));
+    let result = [];
+    for (let i = 0; i < user.length; i++) {
+        let perUser = user[i];
+        // ambil email yang ada di local storage
+        let email = perUser.email;
+        if (email !== userEmail) {
+            result.push(perUser);
+        }
+    }
+    localStorage.clear();
+    return result;
+}
+
+/** =================================================================================================================== */
+/** ====================================function logout selesai======================================================== */
+/** =================================================================================================================== */
