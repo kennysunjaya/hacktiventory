@@ -83,12 +83,16 @@ function register() {
     }
 }
 
+// todo validation data yang masuk
+// karena validation masih menggunakan client side maka menggunakan regex
+
 function registerValidate() {
-    // todo validation data yang masuk
     let nama = document.getElementById("fullname").value;
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
-    let repeatPassword = document.getElementById("repeatPassword").value;
+  let repeatPassword = document.getElementById("repeatPassword").value;
+  
+  // todo pertama jika email tidak ada 
 }
 
 // done by Kenny, pemeriksaan apakah email duplicate
