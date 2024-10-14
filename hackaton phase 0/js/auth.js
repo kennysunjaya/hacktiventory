@@ -64,6 +64,7 @@ function register() {
     // done by Kenny jika repeatPassword sama dengan password
     if (repeatPassword !== userInfo["password"]) {
         // todo tampilkan pesan untuk password do not match
+        // todo kosongkan password dan repeat password
         console.log("Passwords do not match!");
         return;
     }
@@ -78,6 +79,7 @@ function register() {
     } else {
         // fixme gunakan notifikasi pada register
         // todo jika email sudah digunakan, tampilkan pesan dengan menggunakan session storage yang bernama message
+        // todo lakukan dulu untuk login validate
         // pesan yang digunakan adalah "Your Account is registered! Please login!"
         console.log("Email is already in use!");
     }
@@ -227,5 +229,3 @@ function setSessionStorage(sessionUserData) {
     sessionStorage.setItem("order", JSON.stringify(sessionUserData.order));
     sessionStorage.setItem("item", JSON.stringify(sessionUserData.item));
 }
-
-

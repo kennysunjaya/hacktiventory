@@ -1,3 +1,4 @@
+// fixme loadNavbar supaya loadFooternya bekerja
 function loadNavbar() {
     const navbar = `
         <nav class="navbar navbar-expand-md bg-light sticky-top p-0 m-0">
@@ -99,7 +100,7 @@ function logout() {
     // done menghapus session storage
     sessionStorage.clear();
 
-    // todo jika berada di 
+    // todo jika berada di
     window.location.href = "http://127.0.0.1:5500/hackaton%20phase%200/index.html";
 }
 
